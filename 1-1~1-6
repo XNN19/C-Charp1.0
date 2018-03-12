@@ -1,0 +1,142 @@
+//输出cout和输入cin
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double r,girth,area;
+    const double PI=3.1415;
+    cout<<"Please input radius:\n";
+    cin>>r;
+    girth=2*PI*r;
+    area=PI*r*r;
+    cout <<"radius="<<r<<endl;
+    cout <<"girth="<<girth<<endl;
+    cout<<"area="<<area<<endl;
+    return 0;
+}
+
+
+//Circle类和方法的访问
+#include <iostream>
+
+using namespace std;
+
+class  Circle{
+    double radius;
+public:
+    void Set_Radius(double r){
+        radius=r;
+    }
+    double Get_Radius(){
+    return radius;
+    }
+    double Get_Girth(){
+        return 2*3.14*radius;
+    }
+    double Get_Area(){
+        return 3.14*radius*radius;
+    }
+};
+
+int main()
+{
+    Circle A,B;
+    A.Set_Radius(6.23);
+    cout<<"A.Radius="<<A.Get_Radius()<<endl;
+    cout<<"A.Girth="<<A.Get_Girth()<<endl;
+    cout<<"A.Area="<<A.Get_Area()<<endl;
+    B.Set_Radius(10.5);
+    cout<<"B.Radius="<<B.Get_Radius()<<endl;
+    cout<<"B.Girth="<<B.Get_Girth()<<endl;
+    cout<<"B.Area="<<B.Get_Area()<<endl;
+    return 0;
+}
+
+
+//枚举类型使用
+#include <iostream>
+
+using namespace std;
+
+enum color{red, yellow, blue, white, black};
+int main()
+{
+    color c;
+    c=red;
+    cout<<"red:"<<c<<endl;
+    c=blue;
+    cout<<"blue:"<<c<<endl;
+    c=black;
+    cout<<"black:"<<c<<endl;
+    return 0;
+}
+
+
+
+//指针指向的变量的交换 && 指针指向的地址的交换
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    long int a=10,b=20,t;
+    long int *p1=&a,*p2=&b,*pt;
+    cout<<p1<<'\t'<<p2<<endl;
+    cout<<*p1<<'\t'<<*p2<<endl;
+    t=*p1;
+    *p1=*p2;
+    *p2=t;                  //交换变量
+    cout<<*p1<<'\t'<<*p2<<endl;//p1指向的地址没有变，但是指向的地址中的变量发生了交换
+    pt=p1;
+    p1=p2;
+    p2=pt;                  //交换指针
+    cout<<p1<<'\t'<<p2<<endl;//p1中存的是之前p2中存的地址，即b的地址
+    cout<<*p1<<'\t'<<*p2<<endl;
+    cout<<a<<'\t'<<b<<endl;
+    return 0;
+}
+
+
+
+//无类型指针的使用
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a=65;
+    int *ip;
+    void *vp=&a;                //定义无类型的指针vp，这里的*代表是指针变量，以整形变量a地址初始化
+    cout<<*(int*)vp<<endl;      //(int*)是整形指针类型符，用来把vp转换成整形指针，再用()外的*取值
+    cout<<*(char*)vp<<endl;
+    ip=(int*)vp;
+    cout<<(*ip)<<endl;
+    return 0;
+}
+
+
+
+//引用VS指针
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int a=2345;
+    int *pa;
+    int &ra=a;
+    pa=&a;
+    cout<<a<<'\t'<<ra<<'\t'<<*pa<<endl;
+    cout<<(&a)<<'\t'<<(&ra)<<'\t'<<pa<<endl;
+    cout<<(&pa)<<endl;
+    return 0;
+}
+
+
+
+//
